@@ -9,16 +9,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="450f17da-c2c9-4aa1-85a5-4771488dc332" name="Changes" comment="Spring Data Jpa. Custom request to DB (findByName and etc)">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/alishev/springcourse/models/Mood.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/person.sql" afterDir="false" />
+    <list default="true" id="450f17da-c2c9-4aa1-85a5-4771488dc332" name="Changes" comment="Spring Data Jpa. Using Date (@Temporal, @DateTimeFormat),&#10;also using Enum with @Enumerated">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/f7267a66-323d-462a-91b3-4d24ad4182e9.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/f7267a66-323d-462a-91b3-4d24ad4182e9.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/f7267a66-323d-462a-91b3-4d24ad4182e9/storage_v2/_src_/database/hibernate_demo_db.bVH-1A/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/f7267a66-323d-462a-91b3-4d24ad4182e9/storage_v2/_src_/database/hibernate_demo_db.bVH-1A/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/alishev/springcourse/dao/PersonDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/alishev/springcourse/controllers/PeopleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/alishev/springcourse/controllers/PeopleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/alishev/springcourse/dao/PersonDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/alishev/springcourse/dao/PersonDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/alishev/springcourse/models/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/alishev/springcourse/models/Item.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/alishev/springcourse/models/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/alishev/springcourse/models/Person.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/alishev/springcourse/services/PeopleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/alishev/springcourse/services/PeopleService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/people/new.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/people/new.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,8 +28,8 @@
       <list>
         <option value="HTML File" />
         <option value="Interface" />
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -190,7 +188,7 @@
       <workItem from="1672915173908" duration="416000" />
       <workItem from="1672934314358" duration="2445000" />
       <workItem from="1672987372366" duration="3574000" />
-      <workItem from="1673025193868" duration="6445000" />
+      <workItem from="1673025193868" duration="8874000" />
     </task>
     <task id="LOCAL-00001" summary="Init commit (Spring + Hibernate)">
       <created>1672864794191</created>
@@ -213,7 +211,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673029554676</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Spring Data Jpa. Using Date (@Temporal, @DateTimeFormat),&#10;also using Enum with @Enumerated">
+      <created>1673032661794</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1673032661794</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -234,7 +239,8 @@
     <MESSAGE value="Init commit (Spring + Hibernate)" />
     <MESSAGE value="Spring Data Jpa: &#10;new dir /services, /repositories; &#10;new PeopleRepository.java, PeopleService.java;&#10;new @Bean PeopleService peopleService in PeopleController.java;&#10;deleted PersonDAO.java" />
     <MESSAGE value="Spring Data Jpa. Custom request to DB (findByName and etc)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Spring Data Jpa. Custom request to DB (findByName and etc)" />
+    <MESSAGE value="Spring Data Jpa. Using Date (@Temporal, @DateTimeFormat),&#10;also using Enum with @Enumerated" />
+    <option name="LAST_COMMIT_MESSAGE" value="Spring Data Jpa. Using Date (@Temporal, @DateTimeFormat),&#10;also using Enum with @Enumerated" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -1,63 +1,43 @@
 package ru.alishev.springcourse.dao;
 
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 import ru.alishev.springcourse.models.Person;
 
+import javax.persistence.EntityManager;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
-/**
- * @author Neil Alishev
- */
 @Component
 public class PersonDAO {
 
-    private final SessionFactory sessionFactory;
+    private final EntityManager entityManager;
 
     @Autowired
-    public PersonDAO(SessionFactory sessionFactory) {
-        this.sessionFactory = sessionFactory;
+    public PersonDAO(EntityManager entityManager) {
+        this.entityManager = entityManager;
     }
 
     @Transactional(readOnly = true)
-    public List<Person> index() {
-        Session session = sessionFactory.getCurrentSession();
-        List<Person> people = session.createQuery("select p from Person p", Person.class)
-                .getResultList();
-        return people;
-    }
+    public void testNPlus1() {
+        Session session = entityManager.unwrap(Session.class);
+        //1 запрос
+        List<Person> people = session.createQuery("select p from Person p", Person.class).getResultList();
+        //N запросов к БД
+        for (Person person: people) {
+            System.out.println("Person " + person.getName() + " has: " + person.getItems());
+        }
 
-    @Transactional
-    public Person show(int id) {
-        Session session = sessionFactory.getCurrentSession();
-        Person person = session.createQuery("select p from Person p where p.id=:id", Person.class).setParameter("id", id)
-                .getSingleResult();
-        return person;
-    }
-
-    @Transactional
-    public void save(Person person) {
-        Session session = sessionFactory.getCurrentSession();
-        session.save(person);
-    }
-
-    @Transactional
-    public void update(int id, Person updatedPerson) {
-        Session session = sessionFactory.getCurrentSession();
-        Person person = session.get(Person.class, id);
-        person.setName(updatedPerson.getName());
-        person.setAge(updatedPerson.getAge());
-        session.save(person);
-    }
-
-    @Transactional
-    public void delete(int id) {
-        Session session = sessionFactory.getCurrentSession();
-        Person person = session.get(Person.class, id);
-        session.remove(person);
+        System.out.println("-------------------------------------------");
+        List<Person> peopleWithLeftJoin = session.createQuery("select p from Person p LEFT JOIN FETCH p.items").getResultList();
+//      Полученный List превращаем в Set, чтобы избавиться от дубликатов
+        Set<Person> peopleWithLeftJoinSet = new HashSet<Person>
+                (session.createQuery("select p from Person p LEFT JOIN FETCH p.items").getResultList());
+        for (Person person: peopleWithLeftJoinSet) {
+            System.out.println("Person " + person.getName() + " has: " + person.getItems());
+        }
     }
 }

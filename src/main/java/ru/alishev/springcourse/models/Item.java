@@ -20,7 +20,6 @@ public class Item {
 
     public Item() {
     }
-
     public Item(String itemName, Person person) {
         this.itemName = itemName;
         this.owner = person;
