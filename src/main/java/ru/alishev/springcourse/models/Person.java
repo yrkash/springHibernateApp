@@ -6,6 +6,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 /**
  * @author Neil Alishev
@@ -27,15 +28,14 @@ public class Person {
     @Column(name = "age")
     private int age;
 
-
-
     @NotEmpty(message = "Email should not be empty")
     @Email(message = "Email should be valid")
     private String email;
 
-    public Person() {
+    @OneToMany(mappedBy = "owner")
+    private List<Item> items;
 
-    }
+    public Person() {}
 
     public Person(String name, int age, String email) {
         this.name = name;
@@ -82,5 +82,13 @@ public class Person {
                 ", name='" + name + '\'' +
                 ", age=" + age +
                 '}';
+    }
+
+    public List<Item> getItems() {
+        return items;
+    }
+
+    public void setItems(List<Item> items) {
+        this.items = items;
     }
 }
